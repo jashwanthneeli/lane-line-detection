@@ -22,19 +22,25 @@ Our test image dataset, sourced from Kaggle, features images with slight distort
 ## Experiments
 - **Color Selection**: Applied to retain white and yellow lane lines while blacking out other elements in RGB, HSV, and HSL color spaces.
   ![image](https://github.com/jashwanthneeli/lane-line-detection/assets/76511089/eca02afc-4635-4297-874c-41d65049e547)
-- **HSV color**:
+- **HSV color**: HSV is an alternative representation of the RGB color model. The HSV representation models the way colors mix together, with the saturation dimension resembling various shades of brightly colored paint, and the value dimension resembling the mixture of those paints with varying amounts of black or white.
   ![image](https://github.com/jashwanthneeli/lane-line-detection/assets/76511089/17a88bfa-24ec-4767-acb7-9d34018aa8c1)
-- **HSL**:
+- **HSL**: HSL is an alternative representation of the RGB color model. The HSL model attempts to resemble more perceptual color models such as NCS or Munsell, placing fully saturated colors around a circle at a lightness value of 1/2, where a lightness value of 0 or 1 is fully black or white, respectively.
   ![image](https://github.com/jashwanthneeli/lane-line-detection/assets/76511089/fef9ce21-00ba-4341-b017-15f92132f32b)
 - **HSL color selection**:
   ![image](https://github.com/jashwanthneeli/lane-line-detection/assets/76511089/c039e7eb-54cb-4423-917f-866feff8071f)
 
-- **Edge Detection**: Implemented using grayscale conversion and Gaussian smoothing, followed by Canny edge detection.
-- **gray scale**:
+- **Edge Detection**: The Canny edge detector is an edge detection operator that uses a multi-stage algorithm to detect a wide range of edges in images.
+- **gray scale**: The Canny edge detection algorithm measures the intensity gradients of each pixel. So, we need to convert the images into gray scale in order to detect edges.
   ![image](https://github.com/jashwanthneeli/lane-line-detection/assets/76511089/97169386-ed96-4171-b398-77a6c5f7c78f)
-- **gaussian smoothing**:
+- **gaussian smoothing**: t is essential to filter out the noise to prevent false detection caused by noise. To smooth the image, a Gaussian filter is applied to convolve with the image. This step will slightly smooth the image to reduce the effects of obvious noise on the edge detector.
   ![image](https://github.com/jashwanthneeli/lane-line-detection/assets/76511089/e618b748-bbf5-4b7f-be9d-bd27d950fed8)
-- **canny edge detection**:
+- **canny edge detection**: The Process of Canny edge detection algorithm can be broken down to 5 different steps:
+
+Find the intensity gradients of the image
+Apply non-maximum suppression to get rid of spurious response to edge detection.
+Apply double threshold to determine potential edges.
+Track edge by hysteresis: Finalize the detection of edges by suppressing all the other edges that are weak and not connected to strong edges.
+
   ![image](https://github.com/jashwanthneeli/lane-line-detection/assets/76511089/0190074c-943f-4c59-9aaa-afc6c8a2143e)
 
 - **Region of Interest**: Focused on areas typically containing lane lines by defining and applying a mask to cut out these regions.
